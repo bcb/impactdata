@@ -9,7 +9,7 @@ from urllib.parse import urljoin
 
 import requests
 
-import settings
+from . import settings
 
 
 # User type, use this to store data about each user

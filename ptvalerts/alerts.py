@@ -1,10 +1,18 @@
 """Alert public transport users when their route is disrupted."""
 from slackclient import SlackClient
 
-import ptv, settings
+from . import ptv, settings
 
 
 def send(disruptions, users):
+    """
+    Send disruption alerts to users.
+
+    Args:
+        disruptions: List of disruptions from the `ptv.get_disruptions`
+            function.
+        users: List of users to send the disruptions to.
+    """
     # Get slack client
     slack_client = SlackClient(settings.SLACK_TOKEN)
     # Alert the users
@@ -16,16 +24,6 @@ def send(disruptions, users):
             descriptions = ptv.get_descriptions(disruptions)
             # Send the alert
             message = f'{user.route_name} disruptions: {descriptions}'
+            print(message)
             slack_client.api_call(
                 'chat.postMessage', channel=user.slack_name, text=message)
-
-
-if __name__ == '__main__':
-    disruptions = ptv.get_disruptions()
-    users = (
-        ptv.User('Barry', '@barry', 'Belgrave', 1),
-        ptv.User('Harry', '@harry', 'Hurstbridge', 2),
-        ptv.User('Wally', '@wally', 'Werribee', 3),
-        ptv.User('Freddy', '@freddy', 'Frankston', 4),
-    )
-    send(disruptions, users)

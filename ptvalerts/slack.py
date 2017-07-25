@@ -4,7 +4,7 @@ from slackclient import SlackClient
 from . import ptv, settings
 
 
-def send(disruptions, users):
+def send(users, disruptions):
     """
     Send disruption alerts to users.
 

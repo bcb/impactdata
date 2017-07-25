@@ -24,9 +24,9 @@ export SLACK_TOKEN='(your token)'
 
 ```python
 from ptvalerts import ptv, slack
-disruptions = ptv.get_disruptions()
 users = [ptv.User('@beau', 'Belgrave', 1)]
-slack.send(disruptions, users)
+disruptions = ptv.get_disruptions()
+slack.send(users, disruptions)
 ```
 
 To alert the four users from the test document:

@@ -19,4 +19,4 @@ class TestGetDisruptions(TestCase):
         )
 
     def test(self):
-        slack.send(self.disruptions, self.users)
+        slack.send(self.users, self.disruptions)

@@ -1,11 +1,11 @@
 from unittest import TestCase, main
 
-from impactdata.utils import get_disruptions
+from impactdata import ptv
 
 
 class TestGetDisruptions(TestCase):
     def test(self):
-        disruptions = get_disruptions()
+        disruptions = ptv.get_disruptions()
         self.assertGreater(disruptions, 0)
 
 

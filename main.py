@@ -1,9 +1,9 @@
 import sys
 
-from impactdata.utils import get_disruptions, alert
+from impactdata import ptv, slack
 
 
 if __name__ == '__main__':
-    disruptions = get_disruptions()
-    alerted = alert(disruptions)
+    disruptions = ptv.get_disruptions()
+    alerted = slack.alert(disruptions)
     print(alerted, file=sys.stderr)

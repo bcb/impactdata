@@ -29,7 +29,7 @@ disruptions = ptv.get_disruptions()
 slack.send(users, disruptions)
 ```
 
-To alert the four users from the test document:
+To alert the four users from the Impact Data test PDF:
 ```sh
 python main.py
 ```

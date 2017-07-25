@@ -1,1 +1,8 @@
+# Requests for the PTV API
 requests==2.18.1
+
+# Responses to mock the PTV API response in unit tests
+responses==0.5.1
+
+# Slack client for sending alerts to users
+slackclient==1.0.6

@@ -11,12 +11,10 @@ Install the requirements:
 pip install -r requirements.txt
 ```
 
-You'll need a PTV API Key (instructions [here
-here](https://static.ptv.vic.gov.au/PTV/PTV%20docs/API/1475462320/PTV-Timetable-API-key-and-signature-document.RTF))
+Set environment variables for your PTV API Key
+([instructions](https://static.ptv.vic.gov.au/PTV/PTV%20docs/API/1475462320/PTV-Timetable-API-key-and-signature-document.RTF))
 and a Slack token
-([here](https://api.slack.com/custom-integrations/legacy-tokens)).
-
-Set environment variables:
+([instructions](https://api.slack.com/custom-integrations/legacy-tokens)):
 
 ```sh
 export PTV_KEY='(your key)'

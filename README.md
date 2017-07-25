@@ -26,13 +26,13 @@ export SLACK_TOKEN='(your token)'
 ## Usage
 
 ```python
->>> import ptv, alerts
+>>> from ptvalerts import ptv, alerts
 >>> disruptions = ptv.get_disruptions()
->>> beau = ptv.User('Beau', '@beau', 'Belgrave', 1)
->>> alerts.send([beau])
+>>> users = [ptv.User('Beau', '@beau', 'Belgrave', 1)]
+>>> alerts.send(disruptions, users)
 ```
 
 To alert the four users from the test document:
 ```sh
-python alerts.py
+python main.py
 ```

@@ -29,7 +29,10 @@ def get_disruptions():
     """
     url = urljoin(settings.PTV_BASE_URL, '/v3/disruptions')
     response = requests.get(url)
-    return response.json()['disruptions']['metro_train']
+    try:
+        return response.json()['disruptions']['metro_train']
+    except KeyError as exc:
+        raise ValueError('Could not retrieve disruptions') from exc
 
 
 def filter_disruptions(disruptions, route_id):

@@ -13,9 +13,3 @@ def get_env_variable(var_name):
 PTV_BASE_URL = 'https://timetableapi.ptv.vic.gov.au'
 PTV_KEY = get_env_variable('PTV_KEY')
 SLACK_TOKEN = get_env_variable('SLACK_TOKEN')
-PEOPLE = (
-    ptv.Person('Barry', 'Belgrave', 1),
-    ptv.Person('Harry', 'Hurstbridge', 2),
-    ptv.Person('Wally', 'Werribee', 3),
-    ptv.Person('Freddy', 'Frankston', 4),
-)

@@ -9,10 +9,11 @@ from urllib.parse import urljoin
 
 import requests
 
-from .settings import PTV_KEY, PTV_BASE_URL
+import settings
 
 
-Person = namedtuple('Person', ('name', 'route_name', 'route_id'))
+# User type, use this to store data about each user
+User = namedtuple('User', ('name', 'route_name', 'route_id'))
 
 
 def get_disruptions():
@@ -26,7 +27,7 @@ def get_disruptions():
     Returns:
         List of disruptions. See the API response at the above url.
     """
-    url = urljoin(PTV_BASE_URL, '/v3/disruptions')
+    url = urljoin(settings.PTV_BASE_URL, '/v3/disruptions')
     response = requests.get(url)
     return response.json()['disruptions']['metro_train']
 
@@ -42,7 +43,7 @@ def filter_disruptions(disruptions, route_id):
         The same list filtered down to only include the specified route.
     """
     filtered_disruptions = [
-        d for d in disruptions for r in d['routes'] if r['route_id']==route_id]
+        d for d in disruptions for r in d['routes'] if r['route_id'] == route_id]
     return filtered_disruptions
 
 

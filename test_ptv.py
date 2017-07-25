@@ -2,7 +2,7 @@ from unittest import TestCase, main
 
 import responses
 
-from impactdata import ptv
+import ptv
 
 
 class TestGetDisruptions(TestCase):

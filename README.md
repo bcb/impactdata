@@ -26,7 +26,7 @@ export SLACK_TOKEN='(your token)'
 ```python
 from ptvalerts import ptv, slack
 disruptions = ptv.get_disruptions()
-users = [ptv.User('Beau', '@beau', 'Belgrave', 1)]
+users = [ptv.User('@beau', 'Belgrave', 1)]
 slack.send(disruptions, users)
 ```
 

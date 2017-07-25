@@ -7,7 +7,7 @@ from ptvalerts import ptv, slack
 
 class TestGetDisruptions(TestCase):
     def setUp(self):
-        self.users = (ptv.User('Beau', '@beau', 'Belgrave', 1),)
+        self.users = [ptv.User('@beau', 'Belgrave', 1)]
         self.disruptions = (
             {
                 'description': 'foo',

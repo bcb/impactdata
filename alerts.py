@@ -4,9 +4,7 @@ from slackclient import SlackClient
 import ptv, settings
 
 
-def send(users):
-    # Get all disruptions
-    disruptions = ptv.get_disruptions()
+def send(disruptions, users):
     # Get slack client
     slack_client = SlackClient(settings.SLACK_TOKEN)
     # Alert the users
@@ -23,10 +21,11 @@ def send(users):
 
 
 if __name__ == '__main__':
+    disruptions = ptv.get_disruptions()
     users = (
         ptv.User('Barry', '@barry', 'Belgrave', 1),
         ptv.User('Harry', '@harry', 'Hurstbridge', 2),
         ptv.User('Wally', '@wally', 'Werribee', 3),
         ptv.User('Freddy', '@freddy', 'Frankston', 4),
     )
-    send(users)
+    send(disruptions, users)

@@ -24,6 +24,5 @@ def send(disruptions, users):
             descriptions = ptv.get_descriptions(disruptions)
             # Send the alert
             message = f'{user.route_name} disruptions: {descriptions}'
-            print(message)
             slack_client.api_call(
                 'chat.postMessage', channel=user.slack_name, text=message)

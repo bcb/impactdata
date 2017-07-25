@@ -1,7 +1,7 @@
 """Utility functions for accessing the PTV and Slack apis"""
 import requests
 
-from impactdata.settings import API_KEY
+from .settings import API_KEY
 
 
 def get_disruptions():

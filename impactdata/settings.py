@@ -11,3 +11,4 @@ def get_env_variable(var_name):
 
 
 API_KEY = get_env_variable('API_KEY')
+PTV_BASE_URL = 'https://timetableapi.ptv.vic.gov.au'

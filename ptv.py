@@ -13,7 +13,7 @@ import settings
 
 
 # User type, use this to store data about each user
-User = namedtuple('User', ('name', 'route_name', 'route_id'))
+User = namedtuple('User', ('name', 'slack_name', 'route_name', 'route_id'))
 
 
 def get_disruptions():

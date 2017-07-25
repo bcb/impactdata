@@ -1,4 +1,4 @@
-from ptvalerts import ptv, alerts
+from ptvalerts import ptv, slack
 
 
 if __name__ == '__main__':
@@ -9,4 +9,4 @@ if __name__ == '__main__':
         ptv.User('Wally', '@wally', 'Werribee', 3),
         ptv.User('Freddy', '@freddy', 'Frankston', 4),
     )
-    alerts.send(disruptions, users)
+    slack.send(disruptions, users)

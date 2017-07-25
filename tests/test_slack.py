@@ -2,7 +2,7 @@ from unittest import TestCase, main
 
 import responses
 
-from ptvalerts import ptv, alerts
+from ptvalerts import ptv, slack
 
 
 class TestGetDisruptions(TestCase):
@@ -19,4 +19,4 @@ class TestGetDisruptions(TestCase):
         )
 
     def test(self):
-        alerts.send(self.disruptions, self.users)
+        slack.send(self.disruptions, self.users)

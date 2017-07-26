@@ -6,6 +6,8 @@ https://www.ptv.vic.gov.au/about-ptv/ptv-data-and-reports/digital-products/ptv-t
 """
 from collections import namedtuple
 from urllib.parse import urljoin
+import hmac
+from hashlib import sha1
 
 import requests
 
@@ -14,6 +16,12 @@ from . import settings
 
 # User type, use this to store data about each user
 User = namedtuple('User', ('slack_name', 'route_name', 'route_id'))
+
+
+
+def generate_signature(key, url):
+    hashed = hmac.new(key.encode(), msg=url.encode(), digestmod=sha1).hexdigest().upper()
+    return hashed
 
 
 def get_disruptions():
@@ -27,7 +35,8 @@ def get_disruptions():
     Returns:
         List of disruptions. See the API response at the above url.
     """
-    url = urljoin(settings.PTV_BASE_URL, '/v3/disruptions')
+    signature = generate_signature(settings.PTV_KEY, settings.PTV_DISRUPTIONS)
+    url = urljoin(settings.PTV_BASE_URL, settings.PTV_DISRUPTIONS+f'&signature={signature}')
     response = requests.get(url)
     try:
         return response.json()['disruptions']['metro_train']

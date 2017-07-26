@@ -16,6 +16,7 @@ Key](https://static.ptv.vic.gov.au/PTV/PTV%20docs/API/1475462320/PTV-Timetable-A
 and [Slack token](https://api.slack.com/custom-integrations/legacy-tokens):
 
 ```sh
+export PTV_ID='(your id)'
 export PTV_KEY='(your key)'
 export SLACK_TOKEN='(your token)'
 ```
